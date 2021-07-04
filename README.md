@@ -1,6 +1,8 @@
 # Controllable cardiac synthesis via disentangled anatomy arithmetic
 This repository consists of the basic implementation of DAA-GAN with two discriminator variants and a use case with cardiac MRI data from the ACDC dataset.
 
+<img src="./assets/images/daa.png" width="850">
+
 ## Abstract
 Acquiring annotated data at scale with rare diseases or conditions remains a challenge. It would be extremely useful to have a method that controllably synthesizes images that can correct such underrepresentation. Assuming a proper latent representation, the idea of a "latent vector arithmetic" could offer the means of achieving such synthesis. A proper representation must encode the fidelity of the input data, preserve invariance and equivariance, and permit arithmetic operations. Motivated by the ability to disentangle images into spatial anatomy (tensor) factors and accompanying imaging (vector) representations, we propose a framework termed "disentangled anatomy arithmetic", in which a generative model learns to combine anatomical factors of different input images such that when they are re-entangled with the desired imaging modality (e.g. MRI), plausible new cardiac images are created with the target characteristics. To encourage a realistic combination of anatomy factors after the arithmetic step, we propose a localized noise injection network that precedes the generator. Our model is used to generate realistic images, pathology labels, and segmentation masks that are used to augment the existing datasets and subsequently improve post-hoc classification and segmentation tasks.
 
@@ -43,8 +45,12 @@ python test.py --gpu 0 --data_path /path/to/ACDC --load_vgg_weights_path checkpo
 
 Running the test script will save the input, generated and factor images under the directory "reporting". Note that the performance of DAA-GAN is critically affected by the quality of the encoded anatomy factors, as well as of the plausibility of the mixed pathologies.
 
-## Visuals
+## Examples (visuals)
+<img src="./assets/images/example1.png" width="650">
 
+<img src="./assets/images/example2.png" width="650">
+
+<img src="./assets/images/example3.png" width="650">
 
 ## Citation
 If refer to the paper or use this code and/or models, please cite the following:
