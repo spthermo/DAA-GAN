@@ -89,11 +89,3 @@ if __name__ == "__main__":
             #save input and generated images for FID computation
             if opt.save_images and mixed[0] > 0:
                 save_gray_images(gen.squeeze(0).detach().cpu(), opt.generated_path, iteration)
-                save_gray_images(b_images.squeeze(0).detach().cpu(), opt.image_path, iteration)
-                save_content_factors(opt.combo_image_path, augmented_a_out.squeeze(0).detach().cpu(), \
-                            noisy_a_out.squeeze(0).detach().cpu(), iteration)
-                save_multi_image(opt.combo_image_path, gen.squeeze(0).detach().cpu(), \
-                            b_images.squeeze(0).detach().cpu(), b_images2.squeeze(0).detach().cpu(), \
-                            a_out.squeeze(0).detach().cpu(), augmented_a_out.squeeze(0).detach().cpu(), \
-                            pred_class, b_original_label, b_original_label2, \
-                            iteration)

@@ -89,25 +89,3 @@ def erode_content_factor(tensor, kernel_size=0):
 
 def save_gray_images(y, folder, idx):
     plt.imsave(folder + '/sample' + str(idx) + '.jpg', y[0], cmap='gray')
-
-def save_content_factors(folder, x, x_noise, idx):
-    img1 = x[0]
-    for j in range(x.shape[0]):
-        if j > 0:
-            img1 = np.concatenate((img1, x[j]), axis=1)
-    img2 = x_noise[0]
-    for j in range(x_noise.shape[0]):
-        if j > 0:
-            img2 = np.concatenate((img2, x_noise[j]), axis=1)
-    plt.imsave(folder + '/' + str(idx) + '_mixed_factors_' +'.jpg', img1, cmap='gray')
-    plt.imsave(folder + '/' + str(idx) + '_noisy_factors_' +'.jpg', img2, cmap='gray')
-
-def save_multi_image(folder, gen, s1, s2, a_out, augmented_a_out, pred_class, s1_class, s2_class, idx):
-    x = gen[0]
-    y = a_out[0,:,:]
-    x = np.concatenate((x, s1[0], s2[0]), axis=1)
-    y = np.concatenate((y,\
-                    a_out[1,:,:], a_out[2,:,:], a_out[3,:,:], a_out[4,:,:], a_out[5,:,:], a_out[6,:,:], a_out[7,:,:],\
-                    augmented_a_out[0,:,:], augmented_a_out[1,:,:], augmented_a_out[2,:,:], augmented_a_out[3,:,:], augmented_a_out[4,:,:], augmented_a_out[5,:,:], augmented_a_out[6,:,:], augmented_a_out[7,:,:]), axis=1)
-    plt.imsave(folder + '/' + str(idx) + s1_class + '_mixed_with_' + s2_class + '_generated_' + pred_class + '_images_' + '.jpg', x, cmap='gray')
-    plt.imsave(folder + '/' + str(idx) + s1_class + '_mixed_with_' + s2_class + '_generated_' + pred_class + '_factors_' +'.jpg', y, cmap='gray')
