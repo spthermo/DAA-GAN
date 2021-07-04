@@ -21,6 +21,7 @@ To train the model execute the following:
 ```
 python train.py --gpu 0 --batch_size XX --epochs XX --data_path /path/to/ACDC --load_vgg_weights_path checkpoints/pretrained-vgg-like-model --load_factors_path factors_npz
 ```
+The pretrained VGG-like pathology classifier can be downloaded from [here](https://drive.google.com/file/d/1PIrwg7pXFJP1nIYlfboO5yg9iwCETxUE/view?usp=sharing).
 
 The visualizer will pint the 8095 port of the localhost to send the visualization information. To view the loss function plots, as well as the input and the generated images execute the following:
 ```
